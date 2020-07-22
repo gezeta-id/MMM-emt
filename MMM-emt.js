@@ -5,7 +5,7 @@
  * MIT Licensed.
  */
 
-Module.register("emt", {
+Module.register("MMM-emt", {
     defaults: {
 
         idClient: "",
