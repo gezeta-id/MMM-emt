@@ -1,35 +1,33 @@
-.emt .line {
+.MMM-emt .line {
     padding-left: 0;
     padding-right: 25px;
     text-align: right;
+    font-weight: bold;
   }
 
-.emt .bus-icon {
+.MMM-emt .bus-icon {
     padding-right: 10px;
     text-align: center;
   }
 
-.emt .time {
+.MMM-emt .time {
     padding-right: 30px;
     text-align: right;
   }
-
-.emt .near {
+.MMM-emt .time span {
+    margin-right: 15px;
+}
+.MMM-emt .highlight {
     color: lightgreen;
+    font-weight: bold;
 }
 
-.emt .near .bright {
-    color: lightgreen;
+.MMM-emt .tonedown {
+    color: lightgrey;
 }
 
-.emt .destination {
-	text-transform: capitalize;
+.MMM-emt .destination {
+    text-align: left !important;
+    text-transform: capitalize;
 }
 
-.emt .bus-stop {
-	text-orientation: sideways;
-	font-size: x-small;
-	padding-left: -10px;
-	padding-right: 15px;
-}
-  
