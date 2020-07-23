@@ -1,54 +1,56 @@
 # EMT MagicMirror² module
-This module show estimate time arrive for bus lines EMT (Madrid Buses) in [MagicMirror²](https://github.com/MichMich/MagicMirror/).
-All you need to use this module is register yourself into EMT opendata platform with this [form](http://opendata.emtmadrid.es/Formulario).
+
+This module shows estimated arrival times for bus lines in Madrid, in [MagicMirror²](https://github.com/MichMich/MagicMirror/).
+
+It uses the official EMT API so, to install this module you will need to register yourself on the EMT OpenData platform [here](http://opendata.emtmadrid.es/Formulario). Once registered, you need to "create an application" to obtain your `clientId` and `passKey`.
 
 
 ## EMT Module Screenshot
 
-![emt screenshot](https://github.com/jirsis/emt/raw/master/emt-screenshot.png "EMT screenshot module")
-![emt screenshot destination](https://github.com/jirsis/emt/raw/master/emt-screenshot-destination.png "EMT screenshot module with destination enable-destination")
+![emt screenshot destination](https://github.com/gezeta-id/MMM-emt/raw/master/emt-screenshot-destination.png "EMT screenshot module with destination enable-destination")
 
 
 ## Using the module
 
 To use this module, add it to the modules array in the `config/config.js` file:
+
 ````javascript
 modules: [
-	{
-		module: "emt",
-		position: "top_left",	// This can be any of the regions. Best results in left or right regions.
-		config: {
-            // The config property is optional.
-			// If no config is set, an example emt is shown.
+    {
+        module: "MMM-emt",
+        position: "top_left", // Best results in left or right regions.
+        config: {
             // See 'Configuration options' for more information.
-            // Only mandatory configuration are the credential to retrive the information.
-		}
-	}
+        }
+    }
 ]
 ````
 
 ## Configuration options
 
-The following properties can be configured:
+The following property is required:
 
 | Option                       | Description
 | ---------------------------- | -----------
-| `busStops      `             | List to query about all lines defined. <br><br> **Possible values:** `[integer value, integer value, …]` or `single-value` <br> **Default value:** `5511`
+| `busStops`             | List to query about all lines defined. It should be an array of stop codes.
 
 #### EMT authentication options:
+
+These two options are required:
+
 | Option                | Description
 | --------------------- | -----------
-| `idClient`            | Id client provied for EMT open-data platform. <br><br> **Default value:** `""`
-| `passKey`             | Passkey provided for EMT open-data platform. <br><br>  **Default value:** `""`
+| `clientId`            | ClientId provided by EMT open-data platform. <br><br> **Default value:** `""`
+| `passKey`             | Passkey provided by EMT open-data platform. <br><br>  **Default value:** `""`
 
 
-#### EMT GUI options:
+#### UI options:
+
+All of these are optional:
+
 | Option                | Description
 | --------------------- | -----------
-| `fade`                | Enable to fade the table information detail. <br><br> **Possible values:** `true` or `false` <br> **Default value:** `true`
-| `fadePoint`           |  Item in the table to fade start. <br><br> **Possible values:** float values in  `[0, 1]` <br> **Default value:** `0.25`
-| `warningTime`         | Minutes estimated to arrive the bus, and visual alarm. <br><br> **Possible values:** integer value in `[0, 20]` <br> **Default value:** `5`
-| `colored`             | Enable colored warning alert. <br><br> **Possible values:** `true` or `false` <br> **Default value:** `true`
-| `updateInterval`      | Time between requests EMT platform in miliseconds. <br><br> **Possible values:** any integer <br> **Default value:** `60 * 1000`
+| `highlightInterval`   | Interval, in minutes, that is optimum. Busses in that interval will show highlighted. <br><br> **Possible values:** an array of two values in `0-20` <br> **Default value:** `[5, 10]`
+| `updateInterval`      | Time between requests EMT platform in miliseconds. <br><br> **Possible values:** any integer <br> **Default value:** `60 * 1000` (one minute)
 | `showDestination`     | Show the bus destination. <br><br> **Possible values:** `true` or `false` <br> **Default value:** `true`
 
